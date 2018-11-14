@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <meta name="description" content="資料科學程式設計（一）">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="資料科學程式設計（一）" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="" />
+  
+  <meta name="twitter:description" content="資料科學程式設計（一）" />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="data-transformation.html">
+
+<script src="libs/jquery/jquery.min.js"></script>
+<link href="libs/gitbook/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/clipboard/clipboard.min.js"></script>
+<link href="libs/primer-tooltips/build.css" rel="stylesheet" />
+<link href="libs/klippy/css/klippy.min.css" rel="stylesheet" />
+<script src="libs/klippy/js/klippy.min.js"></script>
+<script src="libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="libs/d3/d3.min.js"></script>
+<script src="libs/dagre/dagre-d3.min.js"></script>
+<link href="libs/mermaid/dist/mermaid.css" rel="stylesheet" />
+<script src="libs/mermaid/dist/mermaid.slim.min.js"></script>
+<link href="libs/DiagrammeR-styles/styles.css" rel="stylesheet" />
+<script src="libs/chromatography/chromatography.js"></script>
+<script src="libs/DiagrammeR-binding/DiagrammeR.js"></script>
+<script src="libs/kePrint/kePrint.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-104915016-7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-104915016-7');
+
+  // ga('set', 'userId', 'USER_ID'); // Set the user ID using signed-in user_id.
+</script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">資料科學程式設計（一）</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>課程大綱</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#course-objectives"><i class="fa fa-check"></i>Course Objectives</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#assesment"><i class="fa fa-check"></i>Assesment</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#before-you-start"><i class="fa fa-check"></i>Before you start</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#github-in-class-practice-repo"><i class="fa fa-check"></i>GitHub in-class practice repo</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#e5b9b3e69982e68890e7b8be"><i class="fa fa-check"></i>平時成績</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="author.html"><a href="author.html"><i class="fa fa-check"></i>教師資訊</a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#data-science-v.s.-data-engineering"><i class="fa fa-check"></i><b>1.1</b> Data Science v.s. Data Engineering</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#what-should-a-full-scope-data-scientist-know"><i class="fa fa-check"></i><b>1.2</b> What should a full-scope data scientist know?</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#data-service-development"><i class="fa fa-check"></i><b>1.3</b> Data Service Development</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#goal-of-this-course"><i class="fa fa-check"></i><b>1.4</b> Goal of this course</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="r-and-rstudio.html"><a href="r-and-rstudio.html"><i class="fa fa-check"></i><b>2</b> R and RStudio</a><ul>
+<li class="chapter" data-level="2.1" data-path="r-and-rstudio.html"><a href="r-and-rstudio.html#section-2.1"><i class="fa fa-check"></i><b>2.1</b> 主要參考書籍</a></li>
+<li class="chapter" data-level="2.2" data-path="r-and-rstudio.html"><a href="r-and-rstudio.html#what-is-r-what-is-rstudio"><i class="fa fa-check"></i><b>2.2</b> What is R? What is RStudio?</a><ul>
+<li class="chapter" data-level="" data-path="r-and-rstudio.html"><a href="r-and-rstudio.html#r-programming-language"><i class="fa fa-check"></i>R: programming language</a></li>
+<li class="chapter" data-level="" data-path="r-and-rstudio.html"><a href="r-and-rstudio.html#rstudio"><i class="fa fa-check"></i>RStudio</a></li>
+<li class="chapter" data-level="" data-path="r-and-rstudio.html"><a href="r-and-rstudio.html#r-bloggers"><i class="fa fa-check"></i>R-bloggers</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="r-and-rstudio.html"><a href="r-and-rstudio.html#rstudio-environment"><i class="fa fa-check"></i><b>2.3</b> RStudio environment</a><ul>
+<li class="chapter" data-level="" data-path="r-and-rstudio.html"><a href="r-and-rstudio.html#editor"><i class="fa fa-check"></i>Editor</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="r-and-rstudio.html"><a href="r-and-rstudio.html#r-markdown"><i class="fa fa-check"></i><b>2.4</b> R Markdown</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="start-a-project.html"><a href="start-a-project.html"><i class="fa fa-check"></i><b>3</b> Start a Project</a><ul>
+<li class="chapter" data-level="3.1" data-path="start-a-project.html"><a href="start-a-project.html#project"><i class="fa fa-check"></i><b>3.1</b> Project</a><ul>
+<li class="chapter" data-level="" data-path="start-a-project.html"><a href="start-a-project.html#start-a-new-project"><i class="fa fa-check"></i>Start a new project</a></li>
+<li class="chapter" data-level="" data-path="start-a-project.html"><a href="start-a-project.html#start-a-new-file"><i class="fa fa-check"></i>Start a new file</a></li>
+<li class="chapter" data-level="" data-path="start-a-project.html"><a href="start-a-project.html#save-with-encoding"><i class="fa fa-check"></i>Save with Encoding</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="start-a-project.html"><a href="start-a-project.html#github-desktop"><i class="fa fa-check"></i><b>3.2</b> GitHub Desktop</a><ul>
+<li class="chapter" data-level="" data-path="start-a-project.html"><a href="start-a-project.html#add-local-repository"><i class="fa fa-check"></i>Add local repository</a></li>
+<li class="chapter" data-level="" data-path="start-a-project.html"><a href="start-a-project.html#publish-repository"><i class="fa fa-check"></i>Publish repository</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="r-basics.html"><a href="r-basics.html"><i class="fa fa-check"></i><b>4</b> R Basics</a><ul>
+<li class="chapter" data-level="4.1" data-path="r-basics.html"><a href="r-basics.html#-1"><i class="fa fa-check"></i><b>4.1</b> 主要參考書籍</a></li>
+<li class="chapter" data-level="4.2" data-path="r-basics.html"><a href="r-basics.html#numeric-vector"><i class="fa fa-check"></i><b>4.2</b> Numeric (vector)</a><ul>
+<li class="chapter" data-level="" data-path="r-basics.html"><a href="r-basics.html#operations-on-numeric-objects"><i class="fa fa-check"></i>Operations on numeric objects</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="r-basics.html"><a href="r-basics.html#characterstring-vector"><i class="fa fa-check"></i><b>4.3</b> Character/String (vector)</a><ul>
+<li class="chapter" data-level="" data-path="r-basics.html"><a href="r-basics.html#understand-function-usage"><i class="fa fa-check"></i>Understand function usage</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="r-basics.html"><a href="r-basics.html#factor"><i class="fa fa-check"></i><b>4.4</b> Factor</a><ul>
+<li class="chapter" data-level="" data-path="r-basics.html"><a href="r-basics.html#change-class"><i class="fa fa-check"></i>Change class</a></li>
+<li class="chapter" data-level="" data-path="r-basics.html"><a href="r-basics.html#ordered-factor"><i class="fa fa-check"></i>Ordered factor</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="r-basics.html"><a href="r-basics.html#date-and-time"><i class="fa fa-check"></i><b>4.5</b> Date and Time</a><ul>
+<li class="chapter" data-level="" data-path="r-basics.html"><a href="r-basics.html#two-different-classes"><i class="fa fa-check"></i>Two different classes</a></li>
+<li class="chapter" data-level="" data-path="r-basics.html"><a href="r-basics.html#two-ways-to-call-functions"><i class="fa fa-check"></i>Two ways to call functions</a></li>
+<li class="chapter" data-level="" data-path="r-basics.html"><a href="r-basics.html#generate-date-time-sequence"><i class="fa fa-check"></i>Generate date-time sequence</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="r-basics.html"><a href="r-basics.html#operation-on-strings"><i class="fa fa-check"></i><b>4.6</b> Operation on Strings</a><ul>
+<li class="chapter" data-level="" data-path="r-basics.html"><a href="r-basics.html#subset"><i class="fa fa-check"></i>Subset</a></li>
+<li class="chapter" data-level="" data-path="r-basics.html"><a href="r-basics.html#joinsplit"><i class="fa fa-check"></i>Join/Split</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="r-basics.html"><a href="r-basics.html#taiwan-date-time"><i class="fa fa-check"></i><b>4.7</b> Taiwan date-time</a></li>
+<li class="chapter" data-level="4.8" data-path="r-basics.html"><a href="r-basics.html#section-4.8"><i class="fa fa-check"></i><b>4.8</b> 練習題</a><ul>
+<li class="chapter" data-level="" data-path="r-basics.html"><a href="r-basics.html#e7b79ae4b88ae7b7b4e7bf92"><i class="fa fa-check"></i>線上練習</a></li>
+<li class="chapter" data-level="" data-path="r-basics.html"><a href="r-basics.html#e4bd9ce6a5ad"><i class="fa fa-check"></i>作業</a></li>
+<li class="chapter" data-level="" data-path="r-basics.html"><a href="r-basics.html#repo"><i class="fa fa-check"></i>作業repo下載方式</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-frame.html"><a href="data-frame.html"><i class="fa fa-check"></i><b>5</b> Data Frame</a><ul>
+<li class="chapter" data-level="5.1" data-path="data-frame.html"><a href="data-frame.html#section-5.1"><i class="fa fa-check"></i><b>5.1</b> 主要參考資料</a></li>
+<li class="chapter" data-level="5.2" data-path="data-frame.html"><a href="data-frame.html#develop-a-project"><i class="fa fa-check"></i><b>5.2</b> Develop a Project</a><ul>
+<li class="chapter" data-level="" data-path="data-frame.html"><a href="data-frame.html#lay-out-your-strategy"><i class="fa fa-check"></i>Lay out your strategy</a></li>
+<li class="chapter" data-level="" data-path="data-frame.html"><a href="data-frame.html#google-g-suite"><i class="fa fa-check"></i>Google G Suite</a></li>
+<li class="chapter" data-level="" data-path="data-frame.html"><a href="data-frame.html#retrieve-useful-packages"><i class="fa fa-check"></i>Retrieve useful packages</a></li>
+<li class="chapter" data-level="" data-path="data-frame.html"><a href="data-frame.html#import-google-sheets"><i class="fa fa-check"></i>Import Google Sheets</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="data-frame.html"><a href="data-frame.html#understand-your-packages"><i class="fa fa-check"></i><b>5.3</b> Understand your packages</a><ul>
+<li class="chapter" data-level="" data-path="data-frame.html"><a href="data-frame.html#from-rstudio-help"><i class="fa fa-check"></i>From RStudio help</a></li>
+<li class="chapter" data-level="" data-path="data-frame.html"><a href="data-frame.html#google-the-package"><i class="fa fa-check"></i>Google the package</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="data-frame.html"><a href="data-frame.html#data-frame-1"><i class="fa fa-check"></i><b>5.4</b> Data Frame</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="data-frame.html"><a href="data-frame.html#create-a-data-frame"><i class="fa fa-check"></i><b>5.4.1</b> Create a data frame</a></li>
+<li class="chapter" data-level="5.4.2" data-path="data-frame.html"><a href="data-frame.html#columnrow-names"><i class="fa fa-check"></i><b>5.4.2</b> Column/Row names</a></li>
+<li class="chapter" data-level="5.4.3" data-path="data-frame.html"><a href="data-frame.html#extract-observations-numericallogical-index"><i class="fa fa-check"></i><b>5.4.3</b> Extract observations: numerical/logical index</a></li>
+<li class="chapter" data-level="5.4.4" data-path="data-frame.html"><a href="data-frame.html#relational-operators"><i class="fa fa-check"></i><b>5.4.4</b> Relational operators</a></li>
+<li class="chapter" data-level="5.4.5" data-path="data-frame.html"><a href="data-frame.html#logical-operators"><i class="fa fa-check"></i><b>5.4.5</b> Logical operators</a></li>
+<li class="chapter" data-level="5.4.6" data-path="data-frame.html"><a href="data-frame.html#object-extraction-and"><i class="fa fa-check"></i><b>5.4.6</b> Object extraction: <code>$</code> and <code>[ ]</code></a></li>
+<li class="chapter" data-level="5.4.7" data-path="data-frame.html"><a href="data-frame.html#generic-replacement"><i class="fa fa-check"></i><b>5.4.7</b> Generic replacement</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="r-basics.html"><a href="r-basics.html#-1"><i class="fa fa-check"></i><b>5.5</b> 練習題</a><ul>
+<li class="chapter" data-level="" data-path="data-frame.html"><a href="data-frame.html#e8aab2e5a082e7b7b4e7bf92"><i class="fa fa-check"></i>課堂練習</a></li>
+<li class="chapter" data-level="" data-path="r-basics.html"><a href="r-basics.html#-1"><i class="fa fa-check"></i>作業</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="data-transformation.html"><a href="data-transformation.html"><i class="fa fa-check"></i><b>6</b> Data Transformation</a><ul>
+<li class="chapter" data-level="6.1" data-path="r-basics.html"><a href="r-basics.html#-1"><i class="fa fa-check"></i><b>6.1</b> 主要參考資料</a></li>
+<li class="chapter" data-level="6.2" data-path="data-transformation.html"><a href="data-transformation.html#pipe-operator"><i class="fa fa-check"></i><b>6.2</b> Pipe operator</a></li>
+<li class="chapter" data-level="6.3" data-path="data-transformation.html"><a href="data-transformation.html#data-cleaning"><i class="fa fa-check"></i><b>6.3</b> Data cleaning</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="data-transformation.html"><a href="data-transformation.html#mutate"><i class="fa fa-check"></i><b>6.3.1</b> mutate</a></li>
+<li class="chapter" data-level="6.3.2" data-path="data-transformation.html"><a href="data-transformation.html#parsing-characters"><i class="fa fa-check"></i><b>6.3.2</b> Parsing characters</a></li>
+<li class="chapter" data-level="6.3.3" data-path="data-transformation.html"><a href="data-transformation.html#apply-to-multiple-variables"><i class="fa fa-check"></i><b>6.3.3</b> Apply to multiple variables</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>参考資料</a></li>
+<li class="divider"></li>
+<li><a href="https://www.ntpu.edu.tw/econ" target="blank">國立臺北大學 經濟學系</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<style>
+.exercise {
+    background-color: PaleGreen;
+}
+</style>
+<div id="references" class="section level1 unnumbered">
+<h1>参考資料</h1>
+
+<div id="refs" class="references">
+<div>
+<p>Xie, Yihui. 2015. <em>Dynamic Documents with R and Knitr</em>. 2nd ed. Boca Raton, Florida: Chapman; Hall/CRC. <a href="http://yihui.name/knitr/" class="uri">http://yihui.name/knitr/</a>.</p>
+</div>
+<div>
+<p>———. 2018. <em>Bookdown: Authoring Books and Technical Documents with R Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown" class="uri">https://CRAN.R-project.org/package=bookdown</a>.</p>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
+
+<!-- 2. Include library -->
+<script src="js/clipboard.min.js"></script>
+
+<!-- 3. Instantiate clipboard by passing a string selector -->
+
+<script>
+var clipboard = new Clipboard('.btn');
+clipboard.on('success', function(e) {
+    console.log(e);
+});
+clipboard.on('error', function(e) {
+    console.log(e);
+});
+</script>
+
+<script>
+  var copyTextareaBtn = document.querySelector('.js-textareacopybtn');
+
+copyTextareaBtn.addEventListener('click', function(event) {
+  var copyTextarea = document.querySelector('.js-copytextarea');
+  copyTextarea.select();
+
+  try {
+    var successful = document.execCommand('copy');
+    var msg = successful ? 'successful' : 'unsuccessful';
+    console.log('Copying text command was ' + msg);
+  } catch (err) {
+    console.log('Oops, unable to copy');
+  }
+});
+</script>
+
+<script>
+  function CopyToClipboard(containerid) {
+if (document.selection) {
+    var range = document.body.createTextRange();
+    range.moveToElementText(document.getElementById(containerid));
+    range.select().createTextRange();
+    document.execCommand("copy");
+
+} else if (window.getSelection) {
+    var range = document.createRange();
+     range.selectNode(document.getElementById(containerid));
+     window.getSelection().addRange(range);
+     document.execCommand("copy");
+     alert("text copied")
+}}
+</script>
+
+<!--
+<script>
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'https://gitter.im/NTPU-Econ/Econometrics'
+  };
+</script>
+
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+-->
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-transformation.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook/js/app.min.js"></script>
+<script src="libs/gitbook/js/lunr.js"></script>
+<script src="libs/gitbook/js/plugin-search.js"></script>
+<script src="libs/gitbook/js/plugin-sharing.js"></script>
+<script src="libs/gitbook/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["ntpu-programming-for-data-science.pdf", "ntpu-programming-for-data-science.epub"],
+"toc": {
+"collapse": "none"
+},
+"theme": "united"
+});
+});
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <meta name="description" content="資料科學程式設計（一）">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="資料科學程式設計（一）" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="" />
+  
+  <meta name="twitter:description" content="資料科學程式設計（一）" />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="section-r-and-rstudio.html">
+<link rel="next" href="section-r-basics.html">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">資料科學程式設計（一）</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>課程大綱</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#section-course-objectives"><i class="fa fa-check"></i>Course Objectives</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#section-assesment"><i class="fa fa-check"></i>Assesment</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#section-before-you-start"><i class="fa fa-check"></i>Before you start</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="section-author.html"><a href="section-author.html"><i class="fa fa-check"></i>教師資訊</a></li>
+<li class="chapter" data-level="1" data-path="section-introduction.html"><a href="section-introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="section-introduction.html"><a href="section-introduction.html#section-data-science-v.s.-data-engineering"><i class="fa fa-check"></i><b>1.1</b> Data Science v.s. Data Engineering</a></li>
+<li class="chapter" data-level="1.2" data-path="section-introduction.html"><a href="section-introduction.html#section-what-should-a-full-scope-data-scientist-know"><i class="fa fa-check"></i><b>1.2</b> What should a full-scope data scientist know?</a></li>
+<li class="chapter" data-level="1.3" data-path="section-introduction.html"><a href="section-introduction.html#section-data-service-development"><i class="fa fa-check"></i><b>1.3</b> Data Service Development</a></li>
+<li class="chapter" data-level="1.4" data-path="section-introduction.html"><a href="section-introduction.html#section-goal-of-this-course"><i class="fa fa-check"></i><b>1.4</b> Goal of this course</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="section-r-and-rstudio.html"><a href="section-r-and-rstudio.html"><i class="fa fa-check"></i><b>2</b> R and RStudio</a><ul>
+<li class="chapter" data-level="2.1" data-path="section-r-and-rstudio.html"><a href="section-r-and-rstudio.html#section-2.1"><i class="fa fa-check"></i><b>2.1</b> 主要參考書籍</a></li>
+<li class="chapter" data-level="2.2" data-path="section-r-and-rstudio.html"><a href="section-r-and-rstudio.html#section-what-is-r-what-is-rstudio"><i class="fa fa-check"></i><b>2.2</b> What is R? What is RStudio?</a><ul>
+<li class="chapter" data-level="" data-path="section-r-and-rstudio.html"><a href="section-r-and-rstudio.html#section-r-programming-language"><i class="fa fa-check"></i>R: programming language</a></li>
+<li class="chapter" data-level="" data-path="section-r-and-rstudio.html"><a href="section-r-and-rstudio.html#section-rstudio"><i class="fa fa-check"></i>RStudio</a></li>
+<li class="chapter" data-level="" data-path="section-r-and-rstudio.html"><a href="section-r-and-rstudio.html#section-r-bloggers"><i class="fa fa-check"></i>R-bloggers</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="section-r-and-rstudio.html"><a href="section-r-and-rstudio.html#section-rstudio-environment"><i class="fa fa-check"></i><b>2.3</b> RStudio environment</a><ul>
+<li class="chapter" data-level="" data-path="section-r-and-rstudio.html"><a href="section-r-and-rstudio.html#section-editor"><i class="fa fa-check"></i>Editor</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="section-r-and-rstudio.html"><a href="section-r-and-rstudio.html#section-r-markdown"><i class="fa fa-check"></i><b>2.4</b> R Markdown</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="section-start-a-project.html"><a href="section-start-a-project.html"><i class="fa fa-check"></i><b>3</b> Start a Project</a><ul>
+<li class="chapter" data-level="3.1" data-path="section-start-a-project.html"><a href="section-start-a-project.html#section-project"><i class="fa fa-check"></i><b>3.1</b> Project</a><ul>
+<li class="chapter" data-level="" data-path="section-start-a-project.html"><a href="section-start-a-project.html#section-start-a-new-project"><i class="fa fa-check"></i>Start a new project</a></li>
+<li class="chapter" data-level="" data-path="section-start-a-project.html"><a href="section-start-a-project.html#section-start-a-new-file"><i class="fa fa-check"></i>Start a new file</a></li>
+<li class="chapter" data-level="" data-path="section-start-a-project.html"><a href="section-start-a-project.html#section-save-with-encoding"><i class="fa fa-check"></i>Save with Encoding</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="section-start-a-project.html"><a href="section-start-a-project.html#section-github-desktop"><i class="fa fa-check"></i><b>3.2</b> GitHub Desktop</a><ul>
+<li class="chapter" data-level="" data-path="section-start-a-project.html"><a href="section-start-a-project.html#section-add-local-repository"><i class="fa fa-check"></i>Add local repository</a></li>
+<li class="chapter" data-level="" data-path="section-start-a-project.html"><a href="section-start-a-project.html#section-publish-repository"><i class="fa fa-check"></i>Publish repository</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="section-r-basics.html"><a href="section-r-basics.html"><i class="fa fa-check"></i><b>4</b> R Basics</a><ul>
+<li class="chapter" data-level="4.1" data-path="section-r-basics.html"><a href="section-r-basics.html#section--1"><i class="fa fa-check"></i><b>4.1</b> 主要參考書籍</a></li>
+<li class="chapter" data-level="4.2" data-path="section-r-basics.html"><a href="section-r-basics.html#section-numeric-vector"><i class="fa fa-check"></i><b>4.2</b> Numeric (vector)</a><ul>
+<li class="chapter" data-level="" data-path="section-r-basics.html"><a href="section-r-basics.html#section-operations-on-numeric-objects"><i class="fa fa-check"></i>Operations on numeric objects</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="section-r-basics.html"><a href="section-r-basics.html#section-characterstring-vector"><i class="fa fa-check"></i><b>4.3</b> Character/String (vector)</a></li>
+<li class="chapter" data-level="4.4" data-path="section-r-basics.html"><a href="section-r-basics.html#section-date-and-time"><i class="fa fa-check"></i><b>4.4</b> Date and Time</a></li>
+<li class="chapter" data-level="4.5" data-path="section-r-basics.html"><a href="section-r-basics.html#section-matrix-and-data-frame"><i class="fa fa-check"></i><b>4.5</b> Matrix and Data Frame</a></li>
+<li class="chapter" data-level="4.6" data-path="section-r-basics.html"><a href="section-r-basics.html#section-install-and-use-packages"><i class="fa fa-check"></i><b>4.6</b> Install and use packages</a><ul>
+<li class="chapter" data-level="" data-path="section-r-basics.html"><a href="section-r-basics.html#section-acquaint-yourself-with-a-package"><i class="fa fa-check"></i>Acquaint yourself with a package</a></li>
+<li class="chapter" data-level="" data-path="section-r-basics.html"><a href="section-r-basics.html#section-use-help-magnifier-for-functions"><i class="fa fa-check"></i>Use Help magnifier for functions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="section-develop-a-project.html"><a href="section-develop-a-project.html"><i class="fa fa-check"></i><b>5</b> Develop a Project</a><ul>
+<li class="chapter" data-level="5.1" data-path="section-develop-a-project.html"><a href="section-develop-a-project.html#section-lay-out-your-strategy"><i class="fa fa-check"></i><b>5.1</b> Lay out your strategy</a></li>
+<li class="chapter" data-level="5.2" data-path="section-develop-a-project.html"><a href="section-develop-a-project.html#section-retrieve-useful-packages"><i class="fa fa-check"></i><b>5.2</b> Retrieve useful packages</a></li>
+<li class="chapter" data-level="5.3" data-path="section-develop-a-project.html"><a href="section-develop-a-project.html#section-5.3"><i class="fa fa-check"></i><b>5.3</b> 課程名單</a></li>
+<li class="chapter" data-level="5.4" data-path="section-develop-a-project.html"><a href="section-develop-a-project.html#section-how-to-read-package-guides"><i class="fa fa-check"></i><b>5.4</b> How to read package guides</a></li>
+<li class="chapter" data-level="5.5" data-path="section-develop-a-project.html"><a href="section-develop-a-project.html#section-data-frame-retrieve-a-certain-column"><i class="fa fa-check"></i><b>5.5</b> data frame: retrieve a certain column</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="section-references.html"><a href="section-references.html"><i class="fa fa-check"></i>参考資料</a></li>
+<li class="divider"></li>
+<li><a href="https://www.ntpu.edu.tw/econ" target="blank">國立臺北大學 經濟學系</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<script>
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'ntpuecon/course-programming-for-data-science'
+  };
+</script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+<style>
+.exercise {
+    background-color: PaleGreen;
+}
+</style>
+<div id="section-start-a-project" class="section level1">
+<h1><span class="header-section-number">第 3 章</span> Start a Project</h1>
+<div id="section-project" class="section level2">
+<h2><span class="header-section-number">3.1</span> Project</h2>
+<p>以下在RStudio進行：</p>
+<div id="section-start-a-new-project" class="section level3 unnumbered">
+<h3>Start a new project</h3>
+<div class="alert exercise">
+<p>File -&gt; New Project … <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-image"></i></a></p>
+</div>
+
+<div class="collapse" id="collapseExample">
+<h3>Step 1</h3>
+<img src="img/3-1.png" style="width:40%">
+<h3>Step 2</h3>
+<img src="img/3-2.png" style="width:40%">
+<h3>Step 3</h3>
+<img src="img/3-3.png" style="width:40%">
+<h3>Step 4</h3>
+<img src="img/3-4.png" style="width:40%">
+</div>
+<div class="alert alert-info">
+Here we check <strong>create a git repository</strong>.
+</div>
+     
+<div class="alert alert-danger">
+<ul>
+<li>避免中文路徑</li>
+</ul>
+</div>
+</div>
+<div id="section-start-a-new-file" class="section level3 unnumbered">
+<h3>Start a new file</h3>
+<div class="alert exercise">
+<p>Create a notebook: File–&gt;New File–&gt;R Notebook.</p>
+<ol style="list-style-type: decimal">
+<li><p>Title: “YYYY-MM-DD”</p></li>
+<li><p>Click save: Name your file as YYYY-MM-DD</p></li>
+</ol>
+<p><a data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-image"></i></a></p>
+</div>
+
+<div class="collapse" id="collapseExample2">
+<h3>Step 1</h3>
+<img src="img/3-2-1.png" style="width:40%">
+<h3>Step 2</h3>
+<img src="img/3-2-2.png" style="width:40%">
+<h3>Step 3</h3>
+<img src="img/3-2-3.png" style="width:70%">
+</div>
+     
+<div class="alert alert-danger">
+<ul>
+<li>避免中文檔名</li>
+</ul>
+</div>
+</div>
+<div id="section-save-with-encoding" class="section level3 unnumbered">
+<h3>Save with Encoding</h3>
+<div class="alert exercise">
+<ol style="list-style-type: decimal">
+<li><p>File–&gt;Save with Encoding…</p></li>
+<li>choose <strong>UTF8</strong> and check <strong>Set as default encoding for source files</strong>. <a data-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-image"></i></a></li>
+</ol>
+</div>
+
+<div class="collapse" id="collapseExample3">
+<h3>Step 1</h3>
+<img src="img/3-3-1.png" style="width:40%">
+<h3>Step 2</h3>
+<img src="img/3-3-2.png" style="width:40%">
+
+</div>
+     
+</div>
+</div>
+<div id="section-github-desktop" class="section level2">
+<h2><span class="header-section-number">3.2</span> GitHub Desktop</h2>
+<p>以下在GitHub Desktop進行：</p>
+<div id="section-add-local-repository" class="section level3 unnumbered">
+<h3>Add local repository</h3>
+<div class="alert exercise">
+<p>File–&gt;Add Local Repository… <a data-toggle="collapse" href="#collapseExample4" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-image"></i></a></p>
+</div>
+
+<div class="collapse" id="collapseExample4">
+<h3>Step 1</h3>
+<img src="img/3-4-1.png" style="width:40%">
+<h3>Step 2</h3>
+<img src="img/3-4-2.png" style="width:40%">
+
+</div>
+     
+</div>
+<div id="section-publish-repository" class="section level3 unnumbered">
+<h3>Publish repository</h3>
+<div class="alert exercise">
+<ol style="list-style-type: decimal">
+<li><p>Type your <strong>Summary</strong></p></li>
+<li><p>Click <strong>Commit to master</strong></p></li>
+<li><p>Click <strong>Publish repository</strong>.</p></li>
+<li><p>(不打勾) Uncheck <strong>Keep this code private</strong>.</p></li>
+<li>click <strong>Publish repository</strong>. <a data-toggle="collapse" href="#collapseExample5" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-image"></i></a></li>
+</ol>
+</div>
+
+<div class="collapse" id="collapseExample5">
+<h3>Step 1</h3>
+<img src="img/3-4-3.png" style="width:40%">
+<h3>Step 2</h3>
+<img src="img/3-4-4.png" style="width:40%">
+<h3>Step 3</h3>
+<img src="img/3-4-5.png" style="width:40%">
+
+</div>
+     
+New your project is saved in the cloud of your GitHub.com account. To see it,
+<div class="alert exercise">
+<p>In GitHub desktop,</p>
+<p>click <strong>Repository</strong>–&gt;<strong>View on GitHub</strong> <a data-toggle="collapse" href="#collapseExample6" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-image"></i></a></p>
+</div>
+
+<div class="collapse" id="collapseExample6">
+<h3>Step 1</h3>
+<img src="img/3-4-6.png" style="width:40%">
+<h3>Step 2</h3>
+<img src="img/3-4-7.png" style="width:40%">
+<h3>Step 3</h3>
+<img src="img/3-4-8.png" style="width:40%">
+
+</div>
+     
+<p>From View on GitHub, you will see your repository (i.e. project) URL as <code>https://github.com/{username}/{repo name}</code>.</p>
+<div class="alert exercise">
+<p>往後的課堂練習同學請固定使用該repo。</p>
+<p>請到以下表單填寫你的課堂練習repo資訊。 <a href="http://bit.ly/2D0e0qt" class="uri">http://bit.ly/2D0e0qt</a></p>
+</div>
+
+</div>
+</div>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
+
+<!-- 2. Include library -->
+<script src="js/clipboard.min.js"></script>
+
+<!-- 3. Instantiate clipboard by passing a string selector -->
+
+<script>
+var clipboard = new Clipboard('.btn');
+clipboard.on('success', function(e) {
+    console.log(e);
+});
+clipboard.on('error', function(e) {
+    console.log(e);
+});
+</script>
+
+<script>
+  var copyTextareaBtn = document.querySelector('.js-textareacopybtn');
+
+copyTextareaBtn.addEventListener('click', function(event) {
+  var copyTextarea = document.querySelector('.js-copytextarea');
+  copyTextarea.select();
+
+  try {
+    var successful = document.execCommand('copy');
+    var msg = successful ? 'successful' : 'unsuccessful';
+    console.log('Copying text command was ' + msg);
+  } catch (err) {
+    console.log('Oops, unable to copy');
+  }
+});
+</script>
+
+<script>
+  function CopyToClipboard(containerid) {
+if (document.selection) {
+    var range = document.body.createTextRange();
+    range.moveToElementText(document.getElementById(containerid));
+    range.select().createTextRange();
+    document.execCommand("copy");
+
+} else if (window.getSelection) {
+    var range = document.createRange();
+     range.selectNode(document.getElementById(containerid));
+     window.getSelection().addRange(range);
+     document.execCommand("copy");
+     alert("text copied")
+}}
+</script>
+
+<!--
+<script>
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'https://gitter.im/NTPU-Econ/Econometrics'
+  };
+</script>
+
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+-->
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="section-r-and-rstudio.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="section-r-basics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["ntpu-programming-for-data-science.pdf", "ntpu-programming-for-data-science.epub"],
+"toc": {
+"collapse": "none"
+},
+"theme": "united"
+});
+});
+</script>
+
+</body>
+
+</html>
